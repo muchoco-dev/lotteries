@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # Specify the version you desire here
-      - image: circleci/php:7.4-apache-node-browsers
+      - image: circleci/php:7.4.4-apache-node-browsers
       - image: circleci/mariadb:10
         command: mysqld --default-authentication-plugin=mysql_native_password
 
