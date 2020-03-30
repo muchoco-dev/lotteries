@@ -8,14 +8,14 @@ jobs:
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.4.4-apache-node-browsers
-      - image: circleci/mariadb:10
+      - image: circleci/mariadb:10.4
         command: mysqld --default-authentication-plugin=mysql_native_password
 
     environment:
       - APP_DEBUG: true
       - APP_ENV: testing
       - APP_KEY: base64:v33CZ8wP8Gklf2VF/C08R3Hg3+LPN0/aDeR62oz1rY0=
-      - DB_CONNECTION: circle_test
+      - DB_CONNECTION: circleci
 
     steps:
       - checkout
