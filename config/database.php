@@ -95,7 +95,7 @@ return [
             'driver' => 'mysql',
             'host' => '127.0.0.1',
             'port' => '3306',
-            'database' => 'circleci',
+            'database' => 'circleci_test',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8mb4',
@@ -103,7 +103,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'strict' => true,
-            'engine' => 'InnoDB ROW_FORMAT=DYNAMIC',
+            'engine' => 'null',
         ],
 
     ],
