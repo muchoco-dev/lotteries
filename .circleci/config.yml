@@ -15,7 +15,10 @@ jobs:
       - APP_DEBUG: true
       - APP_ENV: testing
       - APP_KEY: base64:v33CZ8wP8Gklf2VF/C08R3Hg3+LPN0/aDeR62oz1rY0=
-      - DB_CONNECTION: circleci
+        #      - DB_CONNECTION: circleci
+      - MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      - MYSQL_ROOT_PASSWORD: ''
+      - MYSQL_DATABASE: circleci
 
     steps:
       - checkout
