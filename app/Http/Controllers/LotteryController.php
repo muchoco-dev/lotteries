@@ -23,6 +23,21 @@ class LotteryController extends Controller
 
     public function edit($uname)
     {
-    
+        $lottery = Lottery::findAddableLotteryByUname($uname);
+        if (!$lottery) {
+            return redirect("/k/{$uname}");
+        }
+
+        return view('lottery.edit');
+
+    }
+
+    public function show($uname)
+    {
+        $lottery = Lottery::where('uname', $uname)
+                    ->first();
+        if (!$lottery) {
+            abort(404);
+        }
     }
 }

@@ -52,4 +52,15 @@ class LotteryTest extends TestCase
         $response->assertRedirect("/k/{$lottery->uname}/edit");
     }
 
+    /**
+     * editページの表示
+     *
+     * @return void
+     */
+    public function testGuestCanViewEditPage()
+    {
+        $lottery = factory(Lottery::class)->create();
+        $response = $this->get("/k/{$lottery->uname}/edit");
+        $response->assertStatus(200);
+    }
 }

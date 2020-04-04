@@ -21,7 +21,8 @@ class Lottery extends Model
     public static function findAddableLotteryByUname($uname)
     {
         return Lottery::where('uname', $uname)
-            ->where('created_at', '>=', strtotime('Y-m-d H:i:s', '-' . config('lottery.deadline')))
+            //            ->where('created_at', '>=', strtotime('Y-m-d H:i:s', '-'))
+            ->where('created_at', '>=', date('Y-m-d H:i:s', strtotime('- ' . config('lottery.deadline'))))
             ->first();
     }
 }
