@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'LotteryController@index');
+Route::get('/k/create', 'LotteryController@create');
+Route::get('/k/{uname}/edit', 'LotteryController@edit');
+Route::get('/k/{uname}', 'LotteryController@show');
+Route::get('/k/{uname}/result', 'LotteryController@result');
