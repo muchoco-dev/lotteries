@@ -27,8 +27,9 @@ class LotteryController extends Controller
         if (!$lottery) {
             return redirect("/k/{$uname}");
         }
+        $lottery->deadline_at = strtotime('+ ' . config('lottery.deadline'), strtotime($lottery->created_at));
 
-        return view('lottery.edit');
+        return view('lottery.edit', ['lottery' => $lottery]);
 
     }
 
