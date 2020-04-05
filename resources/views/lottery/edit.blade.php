@@ -11,5 +11,14 @@
         <p class="col-10 mx-auto p-0">URLをシェアしてクジ作りを手伝ってもらおう！</p>
         <share-box url="{{ secure_url("/k/{$lottery->uname}/edit")  }}"></share-box>
     </div>
+
+    <div class="row">
+        <p class="mx-auto mt-2">
+            <a href="https://twitter.com/intent/tweet?text={{ urlencode("くじ引きにクジを入れるのを手伝ってください！\n" . secure_url("/k/{$lottery->uname}/edit") . "\n#" . config('app.name')) }}" target="_blank" rel="noopener"><img src="/img/twitter.png" class="col-2"></a>
+            <a href="https://social-plugins.line.me/lineit/share?url={{ urlencode(secure_url("/k/{$lottery->uname}/edit")) }}"><img src="/img/line.png" class="col-2"></a>
+        </p>
+    </div>
+
+    <a href="{{ secure_url("/k/{$lottery->uname}") }}" class="mt-4 btn btn-primary">このクジを引いてみる</a>
 </div>
 @endsection
