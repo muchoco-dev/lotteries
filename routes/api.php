@@ -12,8 +12,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
  */
-Route::prefix('api')->group(function () {
-    Route::get('/lot/{uname}/count', 'LotController@getCount');
-    Route::post('/lot/{uname}/add', 'LotController@add');
-});
+Route::get('/lot/{uname}/count', 'LotController@getCount');
+Route::post('/lot/{uname}/add', 'LotController@add');
 

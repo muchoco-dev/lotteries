@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lot extends Model
 {
+    public $timestamps = false;
+
     public function lottery()
     {
-        $this->belongsTo('App\Lottery');
+        return $this->belongsTo('App\Lottery');
     }
 
     /**

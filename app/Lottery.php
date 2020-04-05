@@ -10,7 +10,7 @@ class Lottery extends Model
 
     public function lots()
     {
-        $this->hasMany('App\Lot');
+        return $this->hasMany('App\Lot');
     }
 
     /**

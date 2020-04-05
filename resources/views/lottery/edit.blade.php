@@ -6,7 +6,7 @@
     <div>
         <p>{{ date('H:i', $lottery->deadline_at) }}までクジを入れられるよ！</p>
         <img src="https://placehold.jp/150x150.png" class="rounded mx-auto d-block" alt="説明っぽい画像">
-
+        <lot uname="{{ $lottery->uname }}"></lot>
     </div>
 </div>
 @endsection
