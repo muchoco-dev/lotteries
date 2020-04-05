@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Lot;
 use App\Lottery;
 use Illuminate\Http\Request;
 
@@ -42,5 +43,21 @@ class LotteryController extends Controller
         }
 
         return view('lottery.show', ['lottery' => $lottery]);
+    }
+
+    public function result($uname)
+    {
+        $lottery = Lottery::where('uname', $uname)
+                    ->first();
+        if (!$lottery) {
+            abort(404);
+        }
+
+        $lot = Lot::findRandomByLotteryId($lottery->id);
+
+        return view('lottery.result', [
+            'lottery'   => $lottery,
+            'lot'       => $lot
+        ]);
     }
 }

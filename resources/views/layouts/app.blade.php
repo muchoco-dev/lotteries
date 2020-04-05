@@ -15,7 +15,7 @@
     <body>
         <div id="app">
             <header>
-                <h1>{{ config('app.name') }}</h1>
+                <h1><a href="{{ secure_url('/') }}">{{ config('app.name') }}</a></h1>
             </header>
             <main>
                 @yield('content')
