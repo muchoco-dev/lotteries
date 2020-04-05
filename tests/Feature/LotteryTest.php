@@ -53,7 +53,7 @@ class LotteryTest extends TestCase
     }
 
     /**
-     * editページの表示
+     * 編集ページの表示
      *
      * @return void
      */
@@ -62,5 +62,30 @@ class LotteryTest extends TestCase
         $lottery = factory(Lottery::class)->create();
         $response = $this->get("/k/{$lottery->uname}/edit");
         $response->assertStatus(200);
+    }
+
+    /**
+     * 存在しないunameの編集ページにアクセスしたら、表示ページにリダイレクト
+     *
+     * @return void
+     */
+    public function testEmptyEditPageRedirectToShowPage()
+    {
+        $response = $this->get('/k/empty/edit');
+        $response->assertRedirect('/k/empty');
+    }
+
+    /**
+     * 編集期限が切れている編集ページにアクセスしたら、表示ページにリダイレクト
+     *
+     * @return void
+     */
+    public function testNotEditablePageRedirectToShowPage()
+    {
+        $lottery = factory(Lottery::class)->create([
+            'created_at'    => date('Y-m-d H:i:s', strtotime('-2 hours'))
+        ]);
+        $response = $this->get("/k/{$lottery->uname}/edit");
+        $response->assertRedirect("/k/{$lottery->uname}");
     }
 }
