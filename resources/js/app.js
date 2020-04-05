@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('lot', require('./components/Lot.vue').default);
+Vue.component('share-box', require('./components/ShareBox.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

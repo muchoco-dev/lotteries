@@ -5,7 +5,7 @@
 
     <form>
         <p>{{ error }}</p>
-        <input type="text" name="title" v-model="title">
+        <input type="text" name="title" v-model="title" maxlength="255" required>
         <button class="btn btn-default" v-on:click="add()">追加</button>
     </form>
 </div>
