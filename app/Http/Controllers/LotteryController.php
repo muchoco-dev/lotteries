@@ -19,7 +19,7 @@ class LotteryController extends Controller
         $lottery->uname = uniqid();
         $lottery->save();
 
-        return redirect("/k/{$lottery->uname}/edit");
+        return redirect()->secure("/k/{$lottery->uname}/edit");
     }
 
     public function edit($uname)
