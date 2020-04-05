@@ -14,14 +14,14 @@
     </head>
     <body>
         <div id="app">
-            <header>
-                <h1><a href="{{ secure_url('/') }}">{{ config('app.name') }}</a></h1>
+            <header class="m-4">
+                <h1><a class="text-dark h4" href="{{ secure_url('/') }}">{{ config('app.name') }}</a></h1>
             </header>
             <main>
                 @yield('content')
             </main>
-            <footer>
-                &copy; <a href="https://lachelier.com" target="_blank" rel="noopener">Lachelier LLP</a>
+            <footer class="text-center mt-5">
+                &copy; <a class="text-body" href="https://lachelier.com" target="_blank" rel="noopener">Lachelier LLP</a>
             </footer>
         </div>
     </body>
