@@ -1,12 +1,20 @@
 <template>
-<div>
-    <p>クジの数</p>
-    <p>{{ count }}</p>
+<div class="mt-3">
+    <p class="mb-0">クジの数</p>
+    <b>{{ count }}</b>
 
     <form>
-        <p>{{ error }}</p>
-        <input type="text" name="title" v-model="title" maxlength="255" required>
-        <button class="btn btn-default" v-on:click="add()">追加</button>
+        <div class="form-group row">
+            <div class="col-10 col-lg-3 mx-auto">
+                <p>{{ error }}</p>
+                <input type="text" class="form-control" placeholder="大吉" name="title" v-model="title" maxlength="255" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 col-lg-3 mx-auto">
+                <button class="btn btn-primary w-100" v-on:click="add()">追加</button>
+            </div>
+        </div>
     </form>
 </div>
 </template>

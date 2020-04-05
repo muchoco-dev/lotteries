@@ -1,7 +1,11 @@
 <template>
-<div>
-    <input type="text" v-model="url" id="url" readonly>
-    <button class="clip" data-clipboard-target="#url">コピー</button>
+<div class="mx-auto">
+    <form class="form-inline">
+        <div class="form-group mb-0">
+            <input type="text" v-model="url" id="url" class="form-control" readonly>
+        </div>
+        <button class="mb-3 btn btn-outline-primary clip" data-clipboard-target="#url">コピー</button>
+    </form>
 </div>
 </template>
 

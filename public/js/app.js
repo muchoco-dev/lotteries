@@ -1921,6 +1921,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     uname: String
@@ -1975,6 +1983,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var clipboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! clipboard */ "./node_modules/clipboard/dist/clipboard.js");
 /* harmony import */ var clipboard__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(clipboard__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
 //
 //
 //
@@ -38351,47 +38363,62 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("p", [_vm._v("クジの数")]),
+  return _c("div", { staticClass: "mt-3" }, [
+    _c("p", { staticClass: "mb-0" }, [_vm._v("クジの数")]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.count))]),
+    _c("b", [_vm._v(_vm._s(_vm.count))]),
     _vm._v(" "),
     _c("form", [
-      _c("p", [_vm._v(_vm._s(_vm.error))]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.title,
-            expression: "title"
-          }
-        ],
-        attrs: { type: "text", name: "title", maxlength: "255", required: "" },
-        domProps: { value: _vm.title },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+      _c("div", { staticClass: "form-group row" }, [
+        _c("div", { staticClass: "col-10 col-lg-3 mx-auto" }, [
+          _c("p", [_vm._v(_vm._s(_vm.error))]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.title,
+                expression: "title"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              placeholder: "大吉",
+              name: "title",
+              maxlength: "255",
+              required: ""
+            },
+            domProps: { value: _vm.title },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.title = $event.target.value
+              }
             }
-            _vm.title = $event.target.value
-          }
-        }
-      }),
+          })
+        ])
+      ]),
       _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-default",
-          on: {
-            click: function($event) {
-              return _vm.add()
-            }
-          }
-        },
-        [_vm._v("追加")]
-      )
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-10 col-lg-3 mx-auto" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary w-100",
+              on: {
+                click: function($event) {
+                  return _vm.add()
+                }
+              }
+            },
+            [_vm._v("追加")]
+          )
+        ])
+      ])
     ])
   ])
 }
@@ -38417,28 +38444,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("input", {
-      directives: [
-        { name: "model", rawName: "v-model", value: _vm.url, expression: "url" }
-      ],
-      attrs: { type: "text", id: "url", readonly: "" },
-      domProps: { value: _vm.url },
-      on: {
-        input: function($event) {
-          if ($event.target.composing) {
-            return
+  return _c("div", { staticClass: "mx-auto" }, [
+    _c("form", { staticClass: "form-inline" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.url,
+              expression: "url"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text", id: "url", readonly: "" },
+          domProps: { value: _vm.url },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.url = $event.target.value
+            }
           }
-          _vm.url = $event.target.value
-        }
-      }
-    }),
-    _vm._v(" "),
-    _c(
-      "button",
-      { staticClass: "clip", attrs: { "data-clipboard-target": "#url" } },
-      [_vm._v("コピー")]
-    )
+        })
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "mb-3 btn btn-outline-primary clip",
+          attrs: { "data-clipboard-target": "#url" }
+        },
+        [_vm._v("コピー")]
+      )
+    ])
   ])
 }
 var staticRenderFns = []
