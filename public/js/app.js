@@ -38446,7 +38446,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "mx-auto" }, [
     _c("form", { staticClass: "form-inline" }, [
-      _c("div", { staticClass: "form-group" }, [
+      _c("div", { staticClass: "form-group mb-0" }, [
         _c("input", {
           directives: [
             {
@@ -38473,7 +38473,7 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "mb-3 btn btn-outline-primary clip",
+          staticClass: "btn btn-outline-primary clip",
           attrs: { "data-clipboard-target": "#url" }
         },
         [_vm._v("コピー")]

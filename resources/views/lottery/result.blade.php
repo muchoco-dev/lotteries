@@ -2,7 +2,7 @@
 
 @section('title', 'くじの結果がでたよ')
 @section('content')
-<div class="container">
+<div class="container text-center">
     <div>
         @if ($lot)
         <p>{{ $lot->title }}</p>

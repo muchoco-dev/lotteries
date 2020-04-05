@@ -4,7 +4,7 @@
         <div class="form-group mb-0">
             <input type="text" v-model="url" id="url" class="form-control" readonly>
         </div>
-        <button class="mb-3 btn btn-outline-primary clip" data-clipboard-target="#url">コピー</button>
+        <button class="btn btn-outline-primary clip" data-clipboard-target="#url">コピー</button>
     </form>
 </div>
 </template>
