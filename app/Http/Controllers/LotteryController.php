@@ -40,5 +40,7 @@ class LotteryController extends Controller
         if (!$lottery) {
             abort(404);
         }
+
+        return view('lottery.show', ['lottery' => $lottery]);
     }
 }

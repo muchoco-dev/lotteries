@@ -88,4 +88,17 @@ class LotteryTest extends TestCase
         $response = $this->get("/k/{$lottery->uname}/edit");
         $response->assertRedirect("/k/{$lottery->uname}");
     }
+
+    /**
+     * くじ引きページの表示
+     *
+     * @return void
+     */
+    public function testGuestCanViewShowPage()
+    {
+        $lottery = factory(Lottery::class)->create();
+        $response = $this->get("/k/{$lottery->uname}/");
+        $response->assertStatus(200);
+    }
+
 }
