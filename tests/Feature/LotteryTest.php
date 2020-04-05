@@ -83,7 +83,7 @@ class LotteryTest extends TestCase
     public function testNotEditablePageRedirectToShowPage()
     {
         $lottery = factory(Lottery::class)->create([
-            'created_at'    => date('Y-m-d H:i:s', strtotime('-2 hours'))
+            'created_at' => date('Y-m-d H:i:s', strtotime('-2 hours'))
         ]);
         $response = $this->get("/k/{$lottery->uname}/edit");
         $response->assertRedirect("/k/{$lottery->uname}");

@@ -28,4 +28,53 @@ class LotTest extends TestCase
             'count' => $count
         ]);
     }
+
+    /**
+     * くじ引きにクジを登録する
+     */
+    public function testAddLot()
+    {
+        $lottery = factory(Lottery::class)->create();
+        $title = 'test';
+
+        $response = $this->json('POST', "/api/lot/{$lottery->uname}/add", [
+            'title' => $title
+        ]);
+        $response->assertJson([
+            'result' => true
+        ]);
+
+        $this->assertDatabaseHas('lots', [
+            'lottery_id'    => $lottery->id,
+            'title'         => $title
+        ]);
+    }
+
+    /**
+     * くじ引きに空のクジは登録できない
+     */
+    public function testCanNotAddNullTitleLot()
+    {
+        $lottery = factory(Lottery::class)->create();
+
+        $response = $this->json('POST', "/api/lot/{$lottery->uname}/add", []);
+        $response->assertJsonValidationErrors(['title']);
+    }
+
+    /**
+     * 1つのくじ引きに重複するクジは登録できない
+     */
+    public function testCanNotAddDuplicationLot()
+    {
+        $lottery = factory(Lottery::class)->create();
+        $title = 'Duplication';
+
+        $this->json('POST', "/api/lot/{$lottery->uname}/add", [
+            'title' => $title
+        ]);
+        $response = $this->json('POST', "/api/lot/{$lottery->uname}/add", [
+            'title' => $title
+        ]);
+        $response->assertJsonValidationErrors(['title']);
+    }
 }

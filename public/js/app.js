@@ -1915,17 +1915,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     uname: String
   },
   data: function data() {
     return {
-      count: 0
+      count: 0,
+      title: '',
+      error: ''
     };
   },
   created: function created() {
-    this.setLotscount();
+    this.setLotsCount();
   },
   methods: {
     setLotsCount: function setLotsCount() {
@@ -1933,6 +1941,22 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/lot/' + this.uname + '/count').then(function (res) {
         _this.count = res.data.count;
+      });
+    },
+    add: function add() {
+      var _this2 = this;
+
+      this.error = '';
+      axios.post('/api/lot/' + this.uname + '/add', {
+        title: this.title
+      }).then(function (res) {
+        if (res.data.result === true) {
+          _this2.setLotsCount();
+        }
+      })["catch"](function (error) {
+        for (var key in error.response.data) {
+          _this2.error = error.response.data[key][0];
+        }
       });
     }
   }
@@ -37313,7 +37337,45 @@ var render = function() {
   return _c("div", [
     _c("p", [_vm._v("クジの数")]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.count))])
+    _c("p", [_vm._v(_vm._s(_vm.count))]),
+    _vm._v(" "),
+    _c("form", [
+      _c("p", [_vm._v(_vm._s(_vm.error))]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.title,
+            expression: "title"
+          }
+        ],
+        attrs: { type: "text", name: "title" },
+        domProps: { value: _vm.title },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.title = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-default",
+          on: {
+            click: function($event) {
+              return _vm.add()
+            }
+          }
+        },
+        [_vm._v("追加")]
+      )
+    ])
   ])
 }
 var staticRenderFns = []
